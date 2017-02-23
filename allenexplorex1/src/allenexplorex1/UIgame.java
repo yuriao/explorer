@@ -45,11 +45,37 @@ public class UIgame {
 				texture.terra[i][j].setOpaque(false);
 				if(texture.mapmartix[i*100][j*100]==311)
 				{
-					texture.terra[i][j].setIcon(texture.iconhill);//place hill according to the map matrix tag
+					Random rand=new Random();
+					int select=rand.nextInt(3)+1;
+					if(select==1)
+					{
+					texture.terra[i][j].setIcon(texture.iconhill1);//place hill according to the map matrix tag
+					}
+					if(select==2)
+					{
+					texture.terra[i][j].setIcon(texture.iconhill2);//place hill according to the map matrix tag
+					}
+					if(select==3)
+					{
+					texture.terra[i][j].setIcon(texture.iconhill3);//place hill according to the map matrix tag
+					}
 				}
 				if(texture.mapmartix[i*100][j*100]==312)
 				{
-					texture.terra[i][j].setIcon(texture.iconmountain);//place mountain according to the map matrix tag
+					Random rand=new Random();
+					int select=rand.nextInt(3)+1;
+					if(select==1)
+					{
+					texture.terra[i][j].setIcon(texture.iconmountain1);//place hill according to the map matrix tag
+					}
+					if(select==2)
+					{
+					texture.terra[i][j].setIcon(texture.iconmountain1);//place hill according to the map matrix tag
+					}
+					if(select==3)
+					{
+					texture.terra[i][j].setIcon(texture.iconmountain1);//place hill according to the map matrix tag
+					}//place mountain according to the map matrix tag
 				}
 				if(texture.mapmartix[i*100][j*100]/10==314)
 				{
@@ -57,7 +83,17 @@ public class UIgame {
 				}
 				if(texture.mapmartix[i*100][j*100]/10==315)
 				{
-					texture.terra[i][j].setIcon(texture.iconship);//place sample "allenstr" according to the map matrix tag
+					Random rand=new Random();
+					int select=rand.nextInt(3)+1;
+					if(select==1)
+					{
+					texture.terra[i][j].setIcon(texture.iconship1);//place hill according to the map matrix tag
+					}
+					if(select==2)
+					{
+					texture.terra[i][j].setIcon(texture.iconship2);//place hill according to the map matrix tag
+					}
+					
 				}
 				
 
@@ -257,177 +293,38 @@ public class UIgame {
 		texture.labelminimap2.addMouseListener(new MouseAdapter() {//minimap action
 			 public void mouseClicked(MouseEvent e) //when click on the minimap, the map will move to the clicked position
 	         {
-				 Point p = texture.map.getLocation();
-                 int x=0;
-                 int y=0;
-                 System.out.println(e.getX());
-                 System.out.println(e.getY());
-                 if(e.getY()>=25&&e.getY()<=105&&e.getX()>=42&&e.getX()<=208)
-                 {
-                 x=-(e.getX()*(texture.maplength/240)-500);
-                 y=-(e.getY()*(texture.mapwidth/120)-300);
-                 texture.map.setLocation(x, y);
-                 texture.ship.setLocation(x, y);
-                 texture.explorer.setLocation(x, y);
-                 texture.scanner.setLocation(x+texture.xexp-25, y+texture.yexp-25);
-                 for(int i=0;i<texture.maplength/100;i++)
-	         		{
-	         			for(int j=0;j<texture.mapwidth/100;j++)
-	         			{
-	         				texture.terra[i][j].setLocation(i*100+x, j*100+y);
-	         				
-	         			}
-	         		}
-                
-                 }
-                 if(e.getY()>=25&&e.getY()<=105&&e.getX()<=42)
-                 {
-                	 y=-(e.getY()*(texture.mapwidth/120)-300);
-                     x=-(42*(texture.maplength/240)-500);
-                     texture.map.setLocation(x, y);
-                     texture.ship.setLocation(x, y);
-                     texture.explorer.setLocation(x, y);
-                     texture.scanner.setLocation(x+texture.xexp-25, y+texture.yexp-25);
-                     for(int i=0;i<texture.maplength/100;i++)
- 	         		{
- 	         			for(int j=0;j<texture.mapwidth/100;j++)
- 	         			{
- 	         				texture.terra[i][j].setLocation(i*100+x, j*100+y);
- 	         				
- 	         			}
- 	         		}
-                    
-                 }
-                 if(e.getY()>=25&&e.getY()<=105&&e.getX()>=208)
-                 {
-                	 y=-(e.getY()*(texture.mapwidth/120)-300);
-                     x=-(208*(texture.maplength/240)-500);
-                     texture.map.setLocation(x, y);
-                     texture.ship.setLocation(x, y);
-                     texture.explorer.setLocation(x, y); 
-                     texture.scanner.setLocation(x+texture.xexp-25, y+texture.yexp-25);
-                     for(int i=0;i<texture.maplength/100;i++)
- 	         		{
- 	         			for(int j=0;j<texture.mapwidth/100;j++)
- 	         			{
- 	         				texture.terra[i][j].setLocation(i*100+x, j*100+y);
- 	         				
- 	         			}
- 	         		}
-                   
-                 }
-                 if(e.getY()<=25&&e.getX()>=42&&e.getX()<=208)
-                 {
-                 y=-(25*(texture.mapwidth/120)-300);
-                 x=-(e.getX()*(texture.maplength/240)-500);
-                 texture.map.setLocation(x, y);
-                 texture.ship.setLocation(x, y);
-                 texture.explorer.setLocation(x, y);
-                 texture.scanner.setLocation(x+texture.xexp-25, y+texture.yexp-25);
-                 for(int i=0;i<texture.maplength/100;i++)
-	         		{
-	         			for(int j=0;j<texture.mapwidth/100;j++)
-	         			{
-	         				texture.terra[i][j].setLocation(i*100+x, j*100+y);
-	         				
-	         			}
-	         		}
-                
-                 }
-                 if(e.getY()>=105&&e.getX()>=42&&e.getX()<=208)
-                 {
-                 y=-(105*(texture.mapwidth/120)-300);
-                 x=-(e.getX()*(texture.maplength/240)-500);
-                 texture.map.setLocation(x, y);
-                 texture.ship.setLocation(x, y);
-                 texture.explorer.setLocation(x, y);
+				 Point p = texture.map.getLocation(); 
+					int x=e.getX();
+					int y=e.getY();
 
-                 texture.scanner.setLocation(x+texture.xexp-25, y+texture.yexp-25);
-                 for(int i=0;i<texture.maplength/100;i++)
-	         		{
-	         			for(int j=0;j<texture.mapwidth/100;j++)
-	         			{
-	         				texture.terra[i][j].setLocation(i*100+x, j*100+y);
-	         				
-	         			}
-	         		}
-                
-                 }
-                 if(e.getY()>=105&&e.getX()>=208)
-                 {
-                 y=-(105*(texture.mapwidth/120)-300);
-                 x=-(208*(texture.maplength/240)-500);
-                 texture.map.setLocation(x, y);
-                 texture.ship.setLocation(x, y);
-                 texture.explorer.setLocation(x, y);
-                 texture.scanner.setLocation(x+texture.xexp-25, y+texture.yexp-25);
-                 for(int i=0;i<texture.maplength/100;i++)
-	         		{
-	         			for(int j=0;j<texture.mapwidth/100;j++)
-	         			{
-	         				texture.terra[i][j].setLocation(i*100+x, j*100+y);
-	         				
-	         			}
-	         		}
-             
-                 }
-                 if(e.getY()>=105&&e.getX()<=42)
-                 {
-                 y=-(105*(texture.mapwidth/120)-300);
-                 x=-(42*(texture.maplength/240)-500);
-                 texture.map.setLocation(x, y);
-                 texture.ship.setLocation(x, y);
-                 texture.explorer.setLocation(x, y);
-                 texture.scanner.setLocation(x+texture.xexp-25, y+texture.yexp-25);
-                 for(int i=0;i<texture.maplength/100;i++)
-	         		{
-	         			for(int j=0;j<texture.mapwidth/100;j++)
-	         			{
-	         				texture.terra[i][j].setLocation(i*100+x, j*100+y);
-	         				
-	         			}
-	         		}
-               
-                 }
-                 if(e.getY()<=25&&e.getX()>=208)
-                 {
-                 y=-(25*(texture.mapwidth/120)-300);
-                 x=-(208*(texture.maplength/240)-500);
-                 texture.map.setLocation(x, y);
-                 texture.ship.setLocation(x, y);
-                 texture.explorer.setLocation(x, y);
-                 texture.scanner.setLocation(x+texture.xexp-25, y+texture.yexp-25);
-                 for(int i=0;i<texture.maplength/100;i++)
-	         		{
-	         			for(int j=0;j<texture.mapwidth/100;j++)
-	         			{
-	         				texture.terra[i][j].setLocation(i*100+x, j*100+y);
-	         				
-	         			}
-	         		}
-              
-                 }
-                 if(e.getY()<=25&&e.getX()<=42)
-                 {
-                 y=-(25*(texture.mapwidth/120)-300);
-                 x=-(42*(texture.maplength/240)-500);
-                 texture.map.setLocation(x, y);
-                 texture.ship.setLocation(x, y);
-                 texture.explorer.setLocation(x, y);
-                 texture.scanner.setLocation(x+texture.xexp-25, y+texture.yexp-25);
-                 for(int i=0;i<texture.maplength/100;i++)
-	         		{
-	         			for(int j=0;j<texture.mapwidth/100;j++)
-	         			{
-	         				texture.terra[i][j].setLocation(i*100+x, j*100+y);
-	         				
-	         			}
-	         		}
-                
-                 }
-                 
-                 texture.screenx=x;
-                 texture.screeny=y;
+					//calculate X
+					if (x <= 15)
+						x = 500-15*texture.maplength/240;
+					else if (x >=226)
+						x = 500-226*texture.maplength/240;
+					else
+						x = 500-e.getX()*texture.maplength/240;
+
+					//calculate y
+					if (y <= 10)
+						y = 300-10*texture.mapwidth/140;
+					else if (y >= 130)
+						y = 300-130*texture.mapwidth/140;
+					else
+						y = 300-e.getY()*texture.mapwidth/140;
+					texture.map.setLocation(x, y);
+					texture.ship.setLocation(x, y);
+					texture.explorer.setLocation(x, y);
+					texture.scanner.setLocation(x+texture.xexp-25, y+texture.yexp-25);
+					for(int i=0;i<30;i++)
+					{
+						for(int j=0;j<18;j++)
+						{
+							texture.terra[i][j].setLocation(i*100+x, j*100+y);
+						}
+					}
+					texture.screenx=x;
+					texture.screeny=y;
 	         }
 	
 		});//minimap action part end
@@ -599,7 +496,7 @@ public class UIgame {
  				texture.alps=0;
  		        
  		        tei.initation();
- 				 texture.wel.welcome();
+ 				 texture.wel.welcomef();
  	         }
  		});
 		

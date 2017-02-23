@@ -53,8 +53,10 @@ public class GameGeneration {
 		{
 			if(texture.mtype==1)
 			{
+				System.out.println(111);
 				continentgen cont=new continentgen();
 				cont.continentareagen();
+				System.out.println(111);
 				System.out.println(1213);
 				cont.shadegen();
 				completesign=true;

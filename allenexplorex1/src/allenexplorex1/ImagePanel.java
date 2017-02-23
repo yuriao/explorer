@@ -58,6 +58,43 @@ import javax.swing.JPanel;
       
         public void saveMap() //for map. Save the generated map as a .png file in the "save" folder
         {
+        	
+            BufferedImage bufImagebasemap;
+            BufferedImage bufImagetop;
+            
+        	bufImagebasemap=new BufferedImage(3000,1800,BufferedImage.TYPE_INT_RGB);
+        	bufImagetop=new BufferedImage(3000,500,BufferedImage.TYPE_INT_RGB);
+        	File file=new File("map/map.png");
+        	File file1=new File("map/top.png");
+        	try {
+				bufImagebasemap=ImageIO.read(file);
+				bufImagetop=ImageIO.read(file1);
+			} catch (IOException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			}
+        	int oriwidth=bufImagebasemap.getWidth(null);
+			int oriheight=bufImagebasemap.getHeight(null);
+			int oriwidth1=bufImagetop.getWidth(null);
+			int oriheight1=bufImagetop.getHeight(null);
+			int [][]rgb=new int[oriwidth][oriheight];
+			int [][]rgb1=new int[oriwidth][oriheight];
+			 for(int i=0;i<oriwidth;i++)
+			 {
+				 for(int j=0;j<oriheight;j++)
+				 {
+					 rgb[i][j]=bufImagebasemap.getRGB(i,j);
+				 }
+			 }
+			 for(int i=0;i<oriwidth1;i++)
+			 {
+				 for(int j=0;j<oriheight1;j++)
+				 {
+					 rgb1[i][j]=bufImagetop.getRGB(i,j);
+				 }
+			 }
+			 
+			 
         	bufImagesav=new BufferedImage(texture.maplength,texture.mapwidth,BufferedImage.TYPE_INT_RGB);
         	
         	File Map_sav = new File(texture.fileName+"/"+"map.png");
@@ -67,18 +104,20 @@ import javax.swing.JPanel;
 				 {
 					 if(texture.mapmartix[i][j]==0)
 					 {
-						 Color c = new Color(30,30,73);//in the map the water parts are blue
+						 Color c = new Color(100,100,150);//in the map the water parts are blue
 						 bufImagesav.setRGB(i, j, c.getRGB());
 						 texture.terramartix[i][j]=0;
 					 }
-					 if(texture.mapmartix[i][j]!=0)
+					 if(texture.mapmartix[i][j]==texture.landcolor)
 					 {					
-						 bufImagesav.setRGB(i, j, texture.mapmartix[i][j]);
+						 bufImagesav.setRGB(i, j, rgb[i/3][j/3]);
 						 texture.terramartix[i][j]=1;
 					 }
 					 
 				 }
 			 }
+        	 
+        	 
 			 try {
 				ImageIO.write(bufImagesav, "png", Map_sav);
 			} catch (IOException e1) {
@@ -108,7 +147,9 @@ import javax.swing.JPanel;
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}  
+			} 
+			
+			 
         }   
         
         public void loadmap(String fileName) throws IOException //load the saved map from the .png file

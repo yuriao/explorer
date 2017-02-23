@@ -224,7 +224,7 @@ public class continentgen {
 		{
 			for(int v=-50;v<150;v++)//landing zone clearance. no landmarks near the landing zone
 			{
-				texture.terramartix[300+u][300+v]=100;
+				texture.terramartix[600+u][600+v]=100;
 				
 			}
 		}

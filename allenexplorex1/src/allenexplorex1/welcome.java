@@ -11,7 +11,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import javax.swing.JFrame;
 
-public class UIwelcome extends JFrame{
+public class welcome extends JFrame{
 
 	/**
 	 * 
@@ -21,7 +21,7 @@ public class UIwelcome extends JFrame{
 	int loadsign=0; //sign of loading process. 0 represents loading not complete, 1 represents loading complete
 	
 	
-	public void welcome(){
+	public void welcomef(){
 		
 		texture.layeredPane.removeAll(); //clean all the objects in the base container (game window)
 		texture.layeredPane.add(texture.labelBackGround, new Integer(1)); //add the welcome background to the base container

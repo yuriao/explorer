@@ -27,8 +27,8 @@ public class texture extends JFrame{
 	public static ImageIcon iconBackGround=new ImageIcon("basictexture/background.png");//add image to welcome page background
 	public static ImageIcon iconNew=new ImageIcon("basictexture/newgame.png");//add image to "new game" button
 	public static ImageIcon iconNewPressed=new ImageIcon("basictexture/newgamePressed.png");//when pressed, change the image of "new game" button
-	public static int [][]mapmartix=new int[9001][5401];//map matrix
-	public static int [][]terramartix=new int[9000][5400];//landmark matrix
+	public static int [][]mapmartix=new int[9001][4501];//map matrix
+	public static int [][]terramartix=new int[9000][4500];//landmark matrix
 	public static int mtype=0;//different land-water distribution	
 	public static int ttype=0;//different land type	
 	public static int screenx=0;
@@ -39,14 +39,19 @@ public class texture extends JFrame{
 	public static ImagePanel labelLoadingProcess=new ImagePanel();//loading process background
 	public static ImagePanel map=new ImagePanel();//map image
 	public static ImagePanel halfmap=new ImagePanel();//left part and right part of the map
-	public static JLabel [][]terra=new JLabel[90][54];//landmark image matrix
+	public static JLabel [][]terra=new JLabel[90][45];//landmark image matrix
 	
-	public static ImageIcon iconhill=new ImageIcon("terraintexture/hill.png");//landmark "hill" image
-	public static ImageIcon iconmountain=new ImageIcon("terraintexture/mountain.png");//landmark "mountain" image	
+	public static ImageIcon iconhill1=new ImageIcon("terraintexture/hill1.png");//landmark "hill" image
+	public static ImageIcon iconhill2=new ImageIcon("terraintexture/hill2.png");//landmark "hill" image
+	public static ImageIcon iconhill3=new ImageIcon("terraintexture/hill3.png");//landmark "hill" image
+	public static ImageIcon iconmountain1=new ImageIcon("terraintexture/mountain1.png");//landmark "mountain" image	
+	public static ImageIcon iconmountain2=new ImageIcon("terraintexture/mountain2.png");//landmark "mountain" image	
+	public static ImageIcon iconmountain3=new ImageIcon("terraintexture/mountain3.png");//landmark "mountain" image	
 	public static ImageIcon iconmineral=new ImageIcon("terraintexture/mineral.png");//sample "mineral" image 
 	public static ImageIcon iconallenstr=new ImageIcon("terraintexture/allenstr.png");//sample "weird structure" image
 	public static ImageIcon iconfallallenstr=new ImageIcon("terraintexture/allenstrfall.png");//"empty structure" image
-	public static ImageIcon iconship=new ImageIcon("terraintexture/ship.png");//sample "shipwreck" image
+	public static ImageIcon iconship1=new ImageIcon("terraintexture/ship1.png");//sample "shipwreck" image
+	public static ImageIcon iconship2=new ImageIcon("terraintexture/ship2.png");//sample "shipwreck" image
 	
 	public static ImagePanel ship=new ImagePanel();	//mother ship
 	public static Imageexplorer explorer=new Imageexplorer();//character
@@ -140,7 +145,7 @@ public class texture extends JFrame{
 	public static int alp=255;//alpha value of loading page
 	public static int alpf=0;//alpha value of fail page
 	public static int alps=0;//alpha value of success page
-	public static UIwelcome wel=new UIwelcome();
+	public static welcome wel=new welcome();
 	
 	
 	public static ScheduledExecutorService service=Executors.newScheduledThreadPool(20);//a time counter thread pool. can be used by other functions
@@ -151,11 +156,8 @@ public class texture extends JFrame{
 		texture.labelBackGround=new JLabel();
 		texture.fileName="";
 
-		texture.iconBackGround=new ImageIcon("basictexture/background.png");
-		texture.iconNew=new ImageIcon("basictexture/newgame.png");
-		texture.iconNewPressed=new ImageIcon("basictexture/newgamePressed.png");
-		texture.mapmartix=new int[9000][5400];
-		texture.terramartix=new int[9000][5400];
+		texture.mapmartix=new int[9001][4501];
+		texture.terramartix=new int[9000][4500];
 		texture.mtype=0;//1:continent;2:island;3:ancient continent;4:mediterranean	
 		texture.ttype=0;//1:grassland&plain;2:forest&jungle;3:desert;4:stone;5:snow&tundra;6:radiation	
 		texture.screenx=0;
@@ -166,17 +168,11 @@ public class texture extends JFrame{
 		texture.labelLoadingProcess=new ImagePanel();
 		texture.map=new ImagePanel();
 		texture.halfmap=new ImagePanel();
-		texture.terra=new JLabel[90][54];
+		texture.terra=new JLabel[90][45];
 		texture.maplength=9000;
-		texture.mapwidth=5400;
+		texture.mapwidth=4500;
 		
-		texture.iconhill=new ImageIcon("terraintexture/hill.png");
-		texture.iconmountain=new ImageIcon("terraintexture/mountain.png");
-		texture.iconmineral=new ImageIcon("terraintexture/mineral.png");
-		texture.iconallenstr=new ImageIcon("terraintexture/allenstr.png");
-		texture.iconfallallenstr=new ImageIcon("terraintexture/allenstrfall.png");
-		texture.iconship=new ImageIcon("terraintexture/ship.png");
-		
+
 		texture.ship=new ImagePanel();	
 		texture.explorer=new Imageexplorer();
 		texture.xexp=400;
@@ -204,35 +200,7 @@ public class texture extends JFrame{
 		
 		texture.nts=new noticeshow();
 		texture.labelcom=new JLabel();
-		texture.iconnote1=new ImageIcon("basictexture/notice1.png");
-		texture.iconnote2=new ImageIcon("basictexture/notice2.png");
-		texture.iconnote3=new ImageIcon("basictexture/notice3.png");
-		texture.iconnote4=new ImageIcon("basictexture/notice4.png");
-		texture.iconnote5=new ImageIcon("basictexture/notice5.png");
-		texture.iconnote6=new ImageIcon("basictexture/notice6.png");
-		texture.iconnote7=new ImageIcon("basictexture/notice7.png");
-		
-		texture.iconlandzone=new ImageIcon("terraintexture/landzone.png");
-		texture.iconrightclick=new ImageIcon("basictexture/rightclick.png");
-		texture.iconblood=new ImageIcon("characters/hp.png");
-		texture.iconenergy=new ImageIcon("characters/ENERGY.png");
-		texture.iconminimap1=new ImageIcon("basictexture/minimap.png");
-		texture.clockday=new ImageIcon("basictexture/clockday.png");
-		texture.clocknight=new ImageIcon("basictexture/clocknight.png");
-		texture.iconplain=new ImageIcon("basictexture/noteplain.png");
-		texture.iconwater=new ImageIcon("basictexture/notewater.png");
-		texture.iconnhill=new ImageIcon("basictexture/notehill.png");
-		texture.iconnmountain=new ImageIcon("basictexture/notemountain.png");
-		texture.iconnmineral=new ImageIcon("basictexture/notemineral.png");
-		texture.iconnstr=new ImageIcon("basictexture/notestr.png");
-		texture.iconnship=new ImageIcon("basictexture/noteship.png");
-		texture.iconfallstr=new ImageIcon("basictexture/notestrfall.png");
-		texture.iconemptystr=new ImageIcon("basictexture/notestrempty.png");
-		texture.iconmothership=new ImageIcon("basictexture/notemothership.png");
-		texture.iconmothershipbu1=new ImageIcon("basictexture/motherbu1.png");
-		texture.iconmothershipbu2=new ImageIcon("basictexture/motherbu2.png");
-		texture.iconmothershipbu3=new ImageIcon("basictexture/motherbu3.png");
-		texture.icongathersample=new ImageIcon("basictexture/gathersample.png");
+
 		
 		texture.collection=0;
 		
@@ -243,11 +211,9 @@ public class texture extends JFrame{
 		
 		
 		texture.landsign=false;
-		texture.iconopaque=new ImageIcon("terraintexture/opaque.png");
 		texture.startsign=false;
 		texture.completesign=false;
 		texture.labeldamage=new JLabel();
-		texture.icondamage=new ImageIcon("characters/damage.png");
 		
 		texture.strfall=false;
 		texture.mineralsign=false;
@@ -269,7 +235,7 @@ public class texture extends JFrame{
 		texture.alp=255;
 		texture.alpf=0;
 		texture.alps=0;
-		texture.wel=new UIwelcome();
+		texture.wel=new welcome();
 		
 		texture.service=Executors.newScheduledThreadPool(20);
 		
