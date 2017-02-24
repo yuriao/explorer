@@ -14,7 +14,7 @@ public class bloodenergyctrl {
             	
             	if(texture.bloodpoint>=1840)//max blood point is 1840
             	{
-            		texture.bloodpoint=1840;
+            		texture.bloodpoint=1840; //hi
             		
             	}
             	if(texture.energypoint>=1840)//max energy point is 1840
