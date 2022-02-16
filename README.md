@@ -5,4 +5,4 @@ Compiled .JAR in package. You need a java environment to run it
 
 a few snapshots:
 
-![alt text](https://github.com/yuriao/explorer/blob/master/image.jpg?raw=true)
+![alt text](https://github.com/yuriao/explorer/blob/master/Screenshot 2022-02-15 204518.png?raw=true)
